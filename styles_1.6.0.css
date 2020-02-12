@@ -1,0 +1,212 @@
+body {
+    background-color: #121212 !important;
+}
+
+.btn {
+    border-radius: 8px !important;
+}
+
+/* Navbar styling */
+.navbar-walnut {
+    background-color: #212121 !important;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+}
+
+/* .navbar-brand {
+    background-color: #03DAC6;
+    border-radius: 50px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+@media only screen and (max-width: 575px) {
+    .navbar-brand {
+        background: none !important;
+    }
+} */
+
+.navbar-brand img, .logo {
+    -webkit-filter: contrast(0) saturate(2000%) brightness(1000%);
+    filter: contrast(0) saturate(2000%) brightness(1000%);
+    opacity: 1;
+}
+
+.navbar-brand .site-name {
+    color: #ffffff !important;
+}
+
+.navbar-walnut a {
+    color: var(--walnut-accent) !important;
+}
+
+.dropdown-menu {
+    background-color: #373737 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+}
+
+.dropdown-item:hover {
+    background-color: #212121 !important;
+}
+
+.dropdown-item:focus {
+    background-color: #212121 !important;
+}
+
+.dropdown-item:active {
+    background-color: var(--walnut-btn) !important;
+}
+
+.dropdown-divider {
+    border-color: #636363 !important
+}
+
+/* Nav drawer styling */
+#nav-drawer {
+    background-color: #212121 !important;
+}
+
+#nav-drawer .list-group {
+    border-radius: 8px !important;
+    overflow: hidden;
+}
+
+#nav-drawer .list-group-item {
+    background-color: #313131;
+    color: #ffffff;
+}
+
+#nav-drawer .list-group-item:hover {
+    background-color: #252525;
+}
+
+#nav-drawer .list-group-item.active {
+    background-color: var(--walnut-btn);
+    border: none;
+}
+
+#nav-drawer .list-group-item.active:hover {
+    background-color: var(--walnut-hover);
+}
+
+/* Login page styling */
+img[title="ACORN @ Acadia University"] {
+    -webkit-filter: contrast(0) saturate(2000%) brightness(1000%);
+    filter: contrast(0) saturate(2000%) brightness(1000%);
+    opacity: 1;
+}
+
+button[type="submit"] {
+    background-color: var(--walnut-btn) !important;
+    border: none;
+    color: #ffffff !important;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--walnut-hover) !important;
+}
+
+/* Course page styling */
+
+#page-header .card {
+    background-color: #212121 !important;
+    color: #ffffff !important;
+    border-radius: 8px !important;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+}
+
+#page-header .card a {
+    color: var(--walnut-accent) !important;
+}
+
+#page-content .card {
+    background-color: #212121 !important;
+    color: #ffffff !important;
+    border-radius: 8px !important;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+}
+
+#page-content .card a {
+    color: var(--walnut-accent) !important;
+}
+
+#page-content .sectionname a {
+    color: #ffffff !important;
+}
+
+#page-content li {
+    border-color: #5a5a5a !important;
+}
+
+#page-content .course-content .current {
+    background-color: #373737 !important;
+    padding-top: 16px !important;
+}
+
+/* Dashboard styling */
+#page-content .block_myoverview {
+    border-color: #474747 !important;
+}
+
+#page-content .nav-tabs {
+    border-color: #474747 !important;
+}
+
+#page-content .nav-tabs .nav-link {
+    border-top-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
+}
+
+#page-content .nav-tabs .nav-link:hover {
+    border-color: #474747 !important;
+}
+
+#page-content .nav-tabs .nav-link.active {
+    background-color: #ffffff00 !important;
+    border-color: #474747 !important;
+    border-bottom-color: #212121 !important;
+}
+
+#page-content .nav-pills .nav-link {
+    transition: 0.5s;
+}
+
+#page-content .nav-pills .nav-link.active {
+    background-color: var(--walnut-btn) !important;
+    color: white !important;
+    border-radius: 8px;
+}
+
+#page-content .courses-view-course-item {
+    background-color: #313131 !important;
+    transition: all 0.5s;
+}
+
+#page-content .courses-view-course-item:hover {
+    background-color: #414141 !important;
+}
+
+#page-content .courses-view-course-item .no-progress {
+    background-color: #515151 !important;
+}
+
+#page-content .courses-view-course-item .no-progress i {
+    color: #313131 !important;
+}
+
+#page-content .block_html a {
+    background-color: #313131 !important;
+    padding-left: 8px !important;
+    border-radius: 12px;
+    margin-bottom: 6px;
+}
+
+/* Footer */
+#page-footer {
+    background-color: var(--walnut-btn) !important;
+    border: none !important;
+}
+
+#page-footer div * {
+    font-weight: 600 !important;
+}

@@ -1,0 +1,294 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Walnut Control Panel</title>
+    <style>
+        body {
+            background-color: #414141;
+            color: #FFFFFF;
+            margin: 0;
+            padding: 8px;
+            border: 3px solid var(--walnut-accent);
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            padding: 16px;
+            min-width: 100px;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: auto auto;
+        }
+
+        .center {
+            display: flex;
+            justify-content: center;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            text-align: center;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+            margin-bottom: 14px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked+.slider {
+            background-color: var(--walnut-accent);
+        }
+
+        input:focus+.slider {
+            box-shadow: 0 0 1px var(--walnut-accent);
+        }
+
+        input:checked+.slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        .btn-grid {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-gap: 10px;
+
+            margin-bottom: 16px;
+        }
+
+        .active {
+            -webkit-box-shadow: inset 0px 0px 0px 2px #ffffff !important;
+            -moz-box-shadow: inset 0px 0px 0px 2px #ffffff !important;
+            box-shadow: inset 0px 0px 0px 2px #ffffff !important;
+        }
+
+        .active:disabled {
+            -webkit-box-shadow: inset 0px 0px 0px 2px #acacac !important;
+            -moz-box-shadow: inset 0px 0px 0px 2px #acacac !important;
+            box-shadow: inset 0px 0px 0px 2px #acacac !important;
+        }
+
+        .btn-grid .btn {
+            background: #FFFFFF;
+            border: 0;
+            border-radius: 4px;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+
+            width: 100%;
+            padding-top: 100%;
+
+            transition: 0.5s;
+        }
+
+        .btn:disabled {
+            background: #818181 !important;
+        }
+
+        .btn:hover {
+            filter: brightness(0.8);
+        }
+
+        #btn-custom {
+            background: #FFFFFF;
+            border: 0;
+            border-radius: 4px;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+
+            position: relative;
+            display: inline-block;
+
+            width: 100%;
+
+            font-weight: bold;
+            font-size: large;
+        }
+
+        #btn-custom .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: #ffffff;
+            color: #414141;
+            text-align: center;
+            padding: 5px 0;
+            border-radius: 6px;
+
+            font-size: 0.8rem;
+
+            /* Position the tooltip text */
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+
+            /* Fade in tooltip */
+            opacity: 0;
+            transition: opacity 0.3s;
+
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .30);
+        }
+
+        /* Tooltip arrow */
+        #btn-custom .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #fff transparent transparent transparent;
+        }
+
+            #btn-custom:hover .tooltiptext {
+                visibility: visible;
+            opacity: 1;
+        }
+
+        #colour-wrapper {
+            padding-left: 24px;
+            width: 140px;
+            margin-left: 8px;
+            margin-right: 8px;
+        }
+
+        #picker {
+            border-radius: 4px;
+            width: 140px;
+            height: 140px;
+            margin-bottom: 8px;
+            overflow: hidden;
+
+            background-color: #FFFFFF;
+        }
+
+        #hue {
+            width: 100%;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            height: 24px;
+
+            background-color: #FFFFFF;
+        }
+
+        #saturation {
+            width: 100%;
+            border-radius: 4px;
+            height: 24px;
+
+            background-color: #FFFFFF;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Walnut</h1>
+                <h4>Enable/Disable</h4>
+
+                <div class="center">
+                    <label class="switch">
+                        <input id="toggle" type="checkbox" disabled>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+
+                <hr>
+                <h3>Accent Colour</h3>
+
+                <div class="btn-grid">
+                    <button class="btn" style="background-color: rgb(187, 134, 252);" data-link="rgb(187, 134, 252)"
+                        data-btn="rgb(55, 0, 179)" data-hover="rgb(90, 96, 231)" disabled></button>
+                    <button class="btn" style="background-color: rgb(169, 255, 247);" data-link="rgb(169, 255, 247)"
+                        data-btn="rgb(99, 180, 209)" data-hover="rgb(119, 218, 255)" disabled></button>
+                    <button class="btn" style="background-color: rgb(148, 251, 171);" data-link="rgb(148, 251, 171)"
+                        data-btn="rgb(90, 201, 99)" data-hover="rgb(109, 242, 120)" disabled></button>
+
+                    <button class="btn" style="background-color: rgb(255, 237, 101);" data-link="rgb(255, 237, 101)"
+                        data-btn="rgb(221, 182, 6)" data-hover="rgb(255, 209, 7)" disabled></button>
+                    <button class="btn" style="background-color: rgb(255, 53, 98);" data-link="rgb(255, 53, 98)"
+                        data-btn="rgb(239, 39, 27)" data-hover="rgb(255, 51, 40)" disabled></button>
+                    <button class="btn" style="background-color: rgb(1, 151, 246);" data-link="rgb(1, 151, 246)"
+                        data-btn="rgb(37, 65, 178)" data-hover="rgb(53, 93, 255)" disabled></button>
+                </div>
+
+                <div class="custom-grid">
+                    <button id="btn-custom">
+                        &#43;
+                        <span class="tooltiptext">Custom Colour</span>
+                    </button>
+                </div>
+            </div>
+            <div id="colour-wrapper" class="col">
+                <h2>Colour Picker</h2>
+                <div id="picker"></div>
+                <div id="hue"></div>
+                <div id="saturation"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+
+    <script src="p5.min.js"></script>
+    <script src="colourPicker.js"></script>
+</body>
+
+</html>

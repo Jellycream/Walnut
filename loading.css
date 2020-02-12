@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap');
+
+body {
+    background-color: #121212 !important;
+}
+
+.fade-in * {
+    animation: fade ease forwards 0.5s 0.25s !important;
+}
+
+.show * {
+    opacity: 1;
+}
+
+body * {
+    opacity: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 400 !important;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
